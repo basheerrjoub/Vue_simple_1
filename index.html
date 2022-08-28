@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+<body>
+
+    <div id="div-4">
+        <div id="box1" :class="{demo: true, 'red-border': box1Selected }" @click="boxSelected('box1')"></div>
+        <div id="box2" :class="{demo: true, 'red-border': box2Selected }" @click="boxSelected('box2')"></div>
+        <div id="box3" :class="{demo: true, 'red-border': box3Selected }" @click="boxSelected('box3')"></div>
+
+    </div><br>
+
+    <div id="div-3">
+        <br>
+        <h1>Name {{nameCounter}}</h1>
+        <button id="ok" @click="nameCounter++">OK</button>
+
+
+    </div><br>
+    <div id="div2">
+        <button @click="counter++">ADD</button><br>
+        <form @submit.prevent @keyup.enter="confirmInput">
+            <h1 v-once>Initial Counter: {{ counter }}</h1>
+            <h1>Counter: {{ counter }}</h1>
+            <input type="text" v-on:input="setName">
+            <h1>Name: {{ name }}</h1>
+            <h1>{{ confirmedName }}</h1>
+            <button>Submit</button>
+        
+        </form>
+    </div>
+
+    <div id="form-div">
+        <h1 v-html="randomNumber()"></label><br><br>
+        <h1 id="name">Name: {{ name }}</h1>
+        <h1 id="age" v-html="age()"></h1>
+        <h1>Random Number: {{ ran() }}</h1>
+        <img v-bind:src="ranImg" alt="">
+    </div>
+    
+</body>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="app.js"></script>
+</html>
